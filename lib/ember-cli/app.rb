@@ -158,10 +158,10 @@ module EmberCLI
     def check_ember_cli_version!
       version = dev_dependencies.fetch("ember-cli").split(?-).first
 
-      unless Helpers.match_version?(version, EMBER_CLI_VERSION)
+      unless Helpers.match_version?(version, EMBER_CLI_VERSIONS)
         fail <<-MSG.strip_heredoc
           EmberCLI Rails require ember-cli NPM package version to be
-          #{EMBER_CLI_VERSION} to work properly. From within your EmberCLI directory
+          #{EMBER_CLI_VERSIONS} to work properly. From within your EmberCLI directory
           please update your package.json accordingly and run:
 
             $ npm install
