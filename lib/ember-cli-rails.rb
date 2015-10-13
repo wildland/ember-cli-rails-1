@@ -14,10 +14,6 @@ module EmberCLI
   def configure
     yield configuration
   end
-  
-  def test
-    "TEST!"
-  end
 
   def configuration
     Configuration.instance
