@@ -28,7 +28,12 @@ module EmberCLI
     def build_timeout
       @build_timeout ||= 5
     end
+    
+    def bypass_rails_asset_digests
+      @bypass_rails_asset_digests ||= false
+    end
 
     attr_writer :build_timeout
+    attr_writer :bypass_rails_asset_digests
   end
 end
