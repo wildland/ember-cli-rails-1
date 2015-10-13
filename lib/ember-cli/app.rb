@@ -245,13 +245,13 @@ module EmberCLI
     end
 
     def bypass_rails_asset_digests
-      options.fetch(:bypass_rails_asset_digests){ false }
+      options.fetch(:bypass_rails_asset_digests){ true }
     end
 
     def env_hash
       ENV.clone.tap do |vars|
         vars.store "RAILS_ENV", Rails.env
-        vars.store "DISABLE_FINGERPRINTING", "true"
+        vars.store "DISABLE_FINGERPRINTING", (!bypass_rails_asset_digests).to_s
         vars.store "EXCLUDE_EMBER_ASSETS", excluded_ember_deps
         vars.store "BUNDLE_GEMFILE", gemfile_path.to_s if gemfile_path.exist?
       end
